@@ -1,0 +1,4 @@
+prefect
+requests
+pandas
+boto3
