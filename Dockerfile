@@ -9,9 +9,7 @@ RUN pip install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
 # Copy your source files
 COPY . ${LAMBDA_TASK_ROOT}
 
-# CMD src/main_prefect.lambda_handler 
+# Run lambda_handler when the container starts
+CMD ["src/prefect_lambda_function.lambda_handler"]
 
 # CMD ["prefect", "server", "start"]
-
-# # Run lambda_handler when the container starts
-CMD ["src/main_prefect.lambda_handler"]
