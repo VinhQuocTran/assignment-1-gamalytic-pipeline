@@ -1,0 +1,10 @@
+version: "3.8"  # Specify Docker Compose version
+
+services:
+  gamalytic-lambda-function:
+    build: .  # Build the image from the current directory (Dockerfile)
+    ports:
+      - "9000:8080"  # Map port 9000 on the host to port 8080 in the container
+    # Use env_file to access environment variables from .env
+    env_file:
+      - .env  # Read environment variables from the .env file in the current directory

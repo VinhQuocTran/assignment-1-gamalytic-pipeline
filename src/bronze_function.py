@@ -13,7 +13,7 @@ def get_game_list(from_page,to_page,game_list_params,game_filter_params):
     list_game_json=[]
     print_flag=0
 
-    for page_idx in range(from_page,to_page):
+    for page_idx in range(from_page,to_page+1):
         game_list_params['page']=page_idx
         api_params={**game_list_params, **game_filter_params}
         

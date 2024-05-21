@@ -1,12 +1,16 @@
 from bronze_function import *
 from silver_function import *
-# from prefect import task, flow
-# from prefect.tasks import task_input_hash
+import os
+import boto3
+from dotenv import load_dotenv
+load_dotenv("../.env")
 
-AWS_ACCESS_KEY_ID = "AKIAYPRKYK336NVWQY25"
-AWS_SECRET_ACCESS_KEY = "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"
+
+
 
 def main():
+    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
     from_page=0
     to_page=5
 
