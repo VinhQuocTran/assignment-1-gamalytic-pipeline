@@ -111,9 +111,15 @@ def lambda_handler(event, context):
     print("to_page:",to_page)
     print("game_list_params:",game_list_params)
     print("game_filter_params:",game_filter_params)
-    gamalytic_etl(from_page,to_page,game_list_params,game_filter_params)
 
-    return {
-        'statusCode': 200,
-        'body': 'Get data from Gamalytic API successfully!'
-    }
+    try:
+        gamalytic_etl(from_page,to_page,game_list_params,game_filter_params)
+        return {
+            'statusCode': 200,
+            'body': 'Get data from Gamalytic API successfully!'
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': f'Error processing Gamalytic ETL: {str(e)}'
+        }
